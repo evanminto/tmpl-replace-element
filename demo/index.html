@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Demo</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../src/styles/styles.css">
+    <script src="../src/index.js" type="module"></script>
+
+    <script>
+      class MyElement extends HTMLElement {
+        connectedCallback() {
+          this.attachShadow({ mode: 'open' });
+          this.addEventListener('click', () => alert('clicked button'));
+          this.shadowRoot.innerHTML = `<slot name="button"></slot>`;
+        }
+      }
+      customElements.define('my-element', MyElement);
+    </script>
+  </head>
+
+  <body>
+    <auto-tmpl>
+      <template>
+        <p>Embedded template</p>
+      </template>
+    </auto-tmpl>
+
+    <auto-tmpl template="referenced"></auto-tmpl>
+
+    <my-element>
+      <p>Custom element fallback content</p>
+
+      <auto-tmpl mode="when-defined" elements="my-element">
+        <template>
+          <button type="button" slot="button">Click me</button>
+        </template>
+      </auto-tmpl>
+    </my-element>
+
+    <my-undefined-element>
+      <p>Custom element fallback content</p>
+
+      <auto-tmpl mode="when-defined" elements="my-undefined-element">
+        <template>
+          <button type="button" slot="button">Click me</button>
+        </template>
+      </auto-tmpl>
+    </my-undefined-element>
+
+    <auto-tmpl id="manual" mode="manual">
+      <template>
+        <p>Hello world!</p>
+      </template>
+    </auto-tmpl>
+
+    <button type="button" onclick="document.getElementById('manual').replace();">Say hello</button>
+
+    <template id="referenced">
+      <p>Referenced template</p>
+    </template>
+  </body>
+</html>
