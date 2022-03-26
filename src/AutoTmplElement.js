@@ -1,20 +1,16 @@
 import { LitElement, css } from 'lit';
-
-const tokenListConverter = {
-  fromAttribute: value => value.split(/\s+/),
-  toAttribute: value => value.join(' '),
-};
+import tokenListConverter from './tokenListConverter';
 
 /**
- * @customElement auto-tmpl
+ * @customElement tmpl-replace
  * @attr elements
  * @attr mode
  * @attr template
  */
-export default class AutoTmplElement extends LitElement {
+export default class TmplReplaceElement extends LitElement {
   /** @prop {String} template */
 
-  static tagName = 'auto-tmpl';
+  static tagName = 'tmpl-replace';
 
   static properties = {
     template: String,
@@ -28,27 +24,23 @@ export default class AutoTmplElement extends LitElement {
     WHEN_DEFINED: 'when-defined',
   };
 
+  static styles = css`
+    :host {
+      display: none !important;
+    }
+  `;
+
   constructor() {
     super();
 
     /** @type {'auto'|'manual'|'when-defined'} */
-    this.mode = AutoTmplElement.modes.AUTO;
+    this.mode = TmplReplaceElement.modes.AUTO;
 
     /** @type {String} */
     this.template = null;
 
     /** @type {String[]} */
     this.elements = [];
-  }
-
-  get #templateEl() {
-    if (this.template) {
-      return document.getElementById(this.template);
-    }
-
-    const templateChild = this.querySelector(':scope > template');
-
-    return templateChild;
   }
 
   connectedCallback() {
@@ -82,11 +74,15 @@ export default class AutoTmplElement extends LitElement {
     this.replaceWith(templateEl.content.cloneNode(true));
   }
 
-  static styles = css`
-    :host {
-      display: none !important;
+  get #templateEl() {
+    if (this.template) {
+      return document.getElementById(this.template);
     }
-  `;
+
+    const templateChild = this.querySelector(':scope > template');
+
+    return templateChild;
+  }
 }
 
-customElements.define(AutoTmplElement.tagName, AutoTmplElement);
+customElements.define(TmplReplaceElement.tagName, TmplReplaceElement);

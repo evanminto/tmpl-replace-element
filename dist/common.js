@@ -1,18 +1,20 @@
 var $gXNCa$lit = require("lit");
 
 
-const $e64fc7548ab114df$var$tokenListConverter = {
+var $29ae4730e36991c0$export$2e2bcd8739ae039 = {
     fromAttribute: (value)=>value.split(/\s+/)
     ,
     toAttribute: (value)=>value.join(' ')
 };
+
+
 class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
-    /** @prop {String} template */ static tagName = 'auto-tmpl';
+    /** @prop {String} template */ static tagName = 'tmpl-replace';
     static properties = {
         template: String,
         mode: String,
         elements: {
-            converter: $e64fc7548ab114df$var$tokenListConverter
+            converter: $29ae4730e36991c0$export$2e2bcd8739ae039
         }
     };
     static modes = {
@@ -20,16 +22,16 @@ class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
         MANUAL: 'manual',
         WHEN_DEFINED: 'when-defined'
     };
+    static styles = $gXNCa$lit.css`
+    :host {
+      display: none !important;
+    }
+  `;
     constructor(){
         super();
         /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $e64fc7548ab114df$export$2e2bcd8739ae039.modes.AUTO;
         /** @type {String} */ this.template = null;
         /** @type {String[]} */ this.elements = [];
-    }
-    get #templateEl() {
-        if (this.template) return document.getElementById(this.template);
-        const templateChild = this.querySelector(':scope > template');
-        return templateChild;
     }
     connectedCallback() {
         super.connectedCallback();
@@ -49,11 +51,11 @@ class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
         if (!templateEl) return;
         this.replaceWith(templateEl.content.cloneNode(true));
     }
-    static styles = $gXNCa$lit.css`
-    :host {
-      display: none !important;
+    get #templateEl() {
+        if (this.template) return document.getElementById(this.template);
+        const templateChild = this.querySelector(':scope > template');
+        return templateChild;
     }
-  `;
 }
 customElements.define($e64fc7548ab114df$export$2e2bcd8739ae039.tagName, $e64fc7548ab114df$export$2e2bcd8739ae039);
 
@@ -61,4 +63,4 @@ customElements.define($e64fc7548ab114df$export$2e2bcd8739ae039.tagName, $e64fc75
 customElements.define($e64fc7548ab114df$export$2e2bcd8739ae039.tagName, $e64fc7548ab114df$export$2e2bcd8739ae039);
 
 
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=common.js.map

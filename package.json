@@ -1,10 +1,15 @@
 {
-  "name": "@evanminto/auto-tmpl",
-  "version": "0.1.0",
+  "name": "@evanminto/tmpl-replace-element",
+  "version": "0.1.1",
   "description": "",
   "source": "src/index.js",
-  "main": "dist/main.js",
+  "main": "dist/common.js",
   "module": "dist/module.js",
+  "targets": {
+    "default": {
+      "context": "browser"
+    }
+  },
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",

@@ -22,39 +22,39 @@
   </head>
 
   <body>
-    <auto-tmpl>
+    <tmpl-replace>
       <template>
         <p>Embedded template</p>
       </template>
-    </auto-tmpl>
+    </tmpl-replace>
 
-    <auto-tmpl template="referenced"></auto-tmpl>
+    <tmpl-replace template="referenced"></tmpl-replace>
 
     <my-element>
       <p>Custom element fallback content</p>
 
-      <auto-tmpl mode="when-defined" elements="my-element">
+      <tmpl-replace mode="when-defined" elements="my-element">
         <template>
           <button type="button" slot="button">Click me</button>
         </template>
-      </auto-tmpl>
+      </tmpl-replace>
     </my-element>
 
     <my-undefined-element>
       <p>Custom element fallback content</p>
 
-      <auto-tmpl mode="when-defined" elements="my-undefined-element">
+      <tmpl-replace mode="when-defined" elements="my-undefined-element">
         <template>
           <button type="button" slot="button">Click me</button>
         </template>
-      </auto-tmpl>
+      </tmpl-replace>
     </my-undefined-element>
 
-    <auto-tmpl id="manual" mode="manual">
+    <tmpl-replace id="manual" mode="manual">
       <template>
         <p>Hello world!</p>
       </template>
-    </auto-tmpl>
+    </tmpl-replace>
 
     <button type="button" onclick="document.getElementById('manual').replace();">Say hello</button>
 

@@ -1,18 +1,20 @@
 import {css as $5OpyM$css, LitElement as $5OpyM$LitElement} from "lit";
 
 
-const $d44bcc518d291f30$var$tokenListConverter = {
+var $f78f849160fb8485$export$2e2bcd8739ae039 = {
     fromAttribute: (value)=>value.split(/\s+/)
     ,
     toAttribute: (value)=>value.join(' ')
 };
+
+
 class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
-    /** @prop {String} template */ static tagName = 'auto-tmpl';
+    /** @prop {String} template */ static tagName = 'tmpl-replace';
     static properties = {
         template: String,
         mode: String,
         elements: {
-            converter: $d44bcc518d291f30$var$tokenListConverter
+            converter: $f78f849160fb8485$export$2e2bcd8739ae039
         }
     };
     static modes = {
@@ -20,16 +22,16 @@ class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
         MANUAL: 'manual',
         WHEN_DEFINED: 'when-defined'
     };
+    static styles = $5OpyM$css`
+    :host {
+      display: none !important;
+    }
+  `;
     constructor(){
         super();
         /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $d44bcc518d291f30$export$2e2bcd8739ae039.modes.AUTO;
         /** @type {String} */ this.template = null;
         /** @type {String[]} */ this.elements = [];
-    }
-    get #templateEl() {
-        if (this.template) return document.getElementById(this.template);
-        const templateChild = this.querySelector(':scope > template');
-        return templateChild;
     }
     connectedCallback() {
         super.connectedCallback();
@@ -49,11 +51,11 @@ class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
         if (!templateEl) return;
         this.replaceWith(templateEl.content.cloneNode(true));
     }
-    static styles = $5OpyM$css`
-    :host {
-      display: none !important;
+    get #templateEl() {
+        if (this.template) return document.getElementById(this.template);
+        const templateChild = this.querySelector(':scope > template');
+        return templateChild;
     }
-  `;
 }
 customElements.define($d44bcc518d291f30$export$2e2bcd8739ae039.tagName, $d44bcc518d291f30$export$2e2bcd8739ae039);
 
