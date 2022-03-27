@@ -1,3 +1,3 @@
-import AutoTmplElement from './AutoTmplElement.js';
+import TmplReplaceElement from './TmplReplaceElement.js';
 
-customElements.define(AutoTmplElement.tagName, AutoTmplElement);
+customElements.define(TmplReplaceElement.tagName, TmplReplaceElement);

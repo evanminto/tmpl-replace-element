@@ -1,4 +1,4 @@
-import {css as $5OpyM$css, LitElement as $5OpyM$LitElement} from "lit";
+import {ReactiveElement as $5OpyM$ReactiveElement} from "lit";
 
 
 var $f78f849160fb8485$export$2e2bcd8739ae039 = {
@@ -8,7 +8,7 @@ var $f78f849160fb8485$export$2e2bcd8739ae039 = {
 };
 
 
-class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
+class $d21cbdfaf19b3fc6$export$2e2bcd8739ae039 extends $5OpyM$ReactiveElement {
     /** @prop {String} template */ static tagName = 'tmpl-replace';
     static properties = {
         template: String,
@@ -22,14 +22,9 @@ class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
         MANUAL: 'manual',
         WHEN_DEFINED: 'when-defined'
     };
-    static styles = $5OpyM$css`
-    :host {
-      display: none !important;
-    }
-  `;
     constructor(){
         super();
-        /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $d44bcc518d291f30$export$2e2bcd8739ae039.modes.AUTO;
+        /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $d21cbdfaf19b3fc6$export$2e2bcd8739ae039.modes.AUTO;
         /** @type {String} */ this.template = null;
         /** @type {String[]} */ this.elements = [];
     }
@@ -57,10 +52,9 @@ class $d44bcc518d291f30$export$2e2bcd8739ae039 extends $5OpyM$LitElement {
         return templateChild;
     }
 }
-customElements.define($d44bcc518d291f30$export$2e2bcd8739ae039.tagName, $d44bcc518d291f30$export$2e2bcd8739ae039);
 
 
-customElements.define($d44bcc518d291f30$export$2e2bcd8739ae039.tagName, $d44bcc518d291f30$export$2e2bcd8739ae039);
+customElements.define($d21cbdfaf19b3fc6$export$2e2bcd8739ae039.tagName, $d21cbdfaf19b3fc6$export$2e2bcd8739ae039);
 
 
 //# sourceMappingURL=module.js.map

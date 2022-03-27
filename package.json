@@ -7,7 +7,16 @@
   "module": "dist/module.js",
   "targets": {
     "default": {
-      "context": "browser"
+      "context": "browser",
+      "distDir": "dist/"
+    },
+    "styles": {
+      "source": "src/styles/styles.css",
+      "distDir": "dist/"
+    },
+    "styles.layered": {
+      "source": "src/styles/styles.layered.css",
+      "distDir": "dist/"
     }
   },
   "scripts": {

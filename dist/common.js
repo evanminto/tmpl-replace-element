@@ -8,7 +8,7 @@ var $29ae4730e36991c0$export$2e2bcd8739ae039 = {
 };
 
 
-class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
+class $57623f31abd631cb$export$2e2bcd8739ae039 extends $gXNCa$lit.ReactiveElement {
     /** @prop {String} template */ static tagName = 'tmpl-replace';
     static properties = {
         template: String,
@@ -22,14 +22,9 @@ class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
         MANUAL: 'manual',
         WHEN_DEFINED: 'when-defined'
     };
-    static styles = $gXNCa$lit.css`
-    :host {
-      display: none !important;
-    }
-  `;
     constructor(){
         super();
-        /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $e64fc7548ab114df$export$2e2bcd8739ae039.modes.AUTO;
+        /** @type {'auto'|'manual'|'when-defined'} */ this.mode = $57623f31abd631cb$export$2e2bcd8739ae039.modes.AUTO;
         /** @type {String} */ this.template = null;
         /** @type {String[]} */ this.elements = [];
     }
@@ -57,10 +52,9 @@ class $e64fc7548ab114df$export$2e2bcd8739ae039 extends $gXNCa$lit.LitElement {
         return templateChild;
     }
 }
-customElements.define($e64fc7548ab114df$export$2e2bcd8739ae039.tagName, $e64fc7548ab114df$export$2e2bcd8739ae039);
 
 
-customElements.define($e64fc7548ab114df$export$2e2bcd8739ae039.tagName, $e64fc7548ab114df$export$2e2bcd8739ae039);
+customElements.define($57623f31abd631cb$export$2e2bcd8739ae039.tagName, $57623f31abd631cb$export$2e2bcd8739ae039);
 
 
 //# sourceMappingURL=common.js.map

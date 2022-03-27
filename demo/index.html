@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../src/styles/styles.css">
-    <script src="../src/index.js" type="module"></script>
+    <link rel="stylesheet" href="../dist/styles/styles.css">
+    <script src="../dist/index.js" type="module"></script>
 
     <script>
       class MyElement extends HTMLElement {
@@ -56,7 +56,12 @@
       </template>
     </tmpl-replace>
 
-    <button type="button" onclick="document.getElementById('manual').replace();">Say hello</button>
+    <button
+      type="button"
+      onclick="document.getElementById('manual') && document.getElementById('manual').replace();"
+    >
+      Say Hello
+    </button>
 
     <template id="referenced">
       <p>Referenced template</p>

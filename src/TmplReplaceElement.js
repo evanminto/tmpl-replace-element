@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit';
+import { ReactiveElement } from 'lit';
 import tokenListConverter from './tokenListConverter';
 
 /**
@@ -7,7 +7,7 @@ import tokenListConverter from './tokenListConverter';
  * @attr mode
  * @attr template
  */
-export default class TmplReplaceElement extends LitElement {
+export default class TmplReplaceElement extends ReactiveElement {
   /** @prop {String} template */
 
   static tagName = 'tmpl-replace';
@@ -23,12 +23,6 @@ export default class TmplReplaceElement extends LitElement {
     MANUAL: 'manual',
     WHEN_DEFINED: 'when-defined',
   };
-
-  static styles = css`
-    :host {
-      display: none !important;
-    }
-  `;
 
   constructor() {
     super();
@@ -84,5 +78,3 @@ export default class TmplReplaceElement extends LitElement {
     return templateChild;
   }
 }
-
-customElements.define(TmplReplaceElement.tagName, TmplReplaceElement);
