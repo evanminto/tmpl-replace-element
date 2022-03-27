@@ -1,7 +1,7 @@
 {
   "name": "@evanminto/tmpl-replace-element",
   "version": "0.1.1",
-  "description": "",
+  "description": "Custom element that clones a template element in-place",
   "source": "src/index.js",
   "main": "dist/common.js",
   "module": "dist/module.js",
